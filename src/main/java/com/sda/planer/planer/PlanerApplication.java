@@ -10,3 +10,17 @@ public class PlanerApplication {
 		SpringApplication.run(PlanerApplication.class, args);
 	}
 }
+
+
+//Employee:
+//id, firstName, lastName, phoneNumber, email, department(enum - BACKEND, FRONTEND, HR)
+
+//Employee Controller (htmle):
+//allEmployees(lista pracownikow oraz formularz), employee
+
+//EmployeeService:
+//getAll, get(id), add(employee)
+
+//EmployeeRepository:
+//
+
