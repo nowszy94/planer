@@ -54,51 +54,14 @@
 </div>
 
 <div class="container">
-
     <div class="row">
-        <div class="col-xs-6">
-            <div class="list-group" th:each="employee : ${employees}">
-                <a href="#"
-                   th:href="'/employees/' + ${employee.id}"
-                   th:text="${employee.firstName} + ' ' + ${employee.lastName}"
-                   class="list-group-item">
-                    Item 1
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-6">
-            <form action="/employees" method="post" role="form">
-                <legend>Add New Employee</legend>
-
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Input...">
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Input...">
-                </div>
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Input...">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Input...">
-                </div>
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <select name="department" id="department" class="form-control">
-                        <option value="BACKEND">Backend</option>
-                        <option value="FRONTEND">Frontend</option>
-                        <option value="HR">HR</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+        <h6 th:text="${employee.formatedDepartment}">Backend</h6>
+        <h1 th:text="${employee.firstName} + ' ' + ${employee.lastName}">Szymon Nowak</h1>
+        <p>
+            <span th:text="'Telephone Number:' + ${employee.phoneNumber}">Telephone Number: 23643746237</span>
+            <span th:text="'Email: ' + ${employee.email}">Email: nowszy94@gmail.com</span>
+        </p>
     </div>
-
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript

@@ -24,3 +24,5 @@ public class PlanerApplication {
 //EmployeeRepository:
 //
 
+//Room
+//id, name, capacity
