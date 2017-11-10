@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -21,6 +22,9 @@ public class Employee {
     private String phoneNumber;
 
     private String email;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "attendees")
+    private List<Meeting> meetings;
 
     @Enumerated(EnumType.STRING)
     private EmployeeEnum department;
