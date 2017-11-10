@@ -23,4 +23,8 @@ public class RoomService {
     public void addRoom(Room room) {
         roomRepository.save(room);
     }
+
+    public Room getOne(long id) {
+        return roomRepository.findOne(id);
+    }
 }

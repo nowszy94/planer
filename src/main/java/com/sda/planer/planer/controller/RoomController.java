@@ -4,10 +4,7 @@ import com.sda.planer.planer.model.Room;
 import com.sda.planer.planer.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -25,6 +22,13 @@ public class RoomController {
     public ModelAndView allRooms() {
         ModelAndView modelAndView = new ModelAndView("allRooms");
         modelAndView.addObject("rooms", roomService.getAll());
+        return modelAndView;
+    }
+
+    @GetMapping("{id}")
+    public ModelAndView getRoom(@PathVariable long id) {
+        ModelAndView modelAndView = new ModelAndView("room");
+        modelAndView.addObject("room", roomService.getOne(id));
         return modelAndView;
     }
 
