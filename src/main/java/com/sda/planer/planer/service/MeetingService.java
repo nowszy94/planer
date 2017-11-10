@@ -19,4 +19,8 @@ public class MeetingService {
     public List<Meeting> getAll() {
         return (List<Meeting>) meetingRepository.findAll();
     }
+
+    public void addOne(Meeting meeting) {
+        meetingRepository.save(meeting);
+    }
 }

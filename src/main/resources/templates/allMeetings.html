@@ -54,17 +54,55 @@
 </div>
 
 <div class="container">
-    <div class="row" th:each="meeting : ${meetings}">
-        <div class="col-xs-4 meeting">
-            <h6 th:text="${meeting.date}">21-11-2017</h6>
-            <h1>
-                <strong th:text="${meeting.title}">Proces Rekrutacyjny</strong>
-                <span th:text="${meeting.attendeesCount}">(5)</span> - <span th:text="${meeting.room.name}">Winkiel</span>
-            </h1>
-            <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Szymon Nowak</h3>
-            <p th:text="${meeting.shortenedDescription}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, iste...</p>
+    <div class="row">
+        <div class="col-xs-2">
+            <form action="/meetings" method="post" role="form">
+                <legend>New Meeting</legend>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Input...">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description" id="description" placeholder="Input...">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" name="date" id="date" placeholder="Input...">
+                </div>
+
+                <div class="form-group">
+                    <label for="room">Room</label>
+                    <input type="number" class="form-control" name="room" id="room" placeholder="Input...">
+                </div>
+
+                <div class="form-group">
+                    <label for="owner">Owner</label>
+                    <input type="number" class="form-control" name="owner" id="owner" placeholder="Input...">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-xs-10">
+            <div class="row" th:each="meeting : ${meetings}">
+                <div class="col-xs-4 meeting">
+                    <h6 th:text="${meeting.date}">21-11-2017</h6>
+                    <h1>
+                        <strong th:text="${meeting.title}">Proces Rekrutacyjny</strong>
+                        <span th:text="${meeting.attendeesCount}">(5)</span> - <span th:text="${meeting.room.name}">Winkiel</span>
+                    </h1>
+                    <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Szymon Nowak</h3>
+                    <p th:text="${meeting.shortenedDescription}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, iste...</p>
+                </div>
+            </div>
         </div>
     </div>
+
+
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript

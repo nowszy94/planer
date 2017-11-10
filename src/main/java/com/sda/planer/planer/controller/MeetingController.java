@@ -1,9 +1,12 @@
 package com.sda.planer.planer.controller;
 
+import com.sda.planer.planer.model.Meeting;
 import com.sda.planer.planer.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +26,12 @@ public class MeetingController {
         ModelAndView modelAndView = new ModelAndView("allMeetings");
         modelAndView.addObject("meetings", meetingService.getAll());
         return modelAndView;
+    }
+
+    @PostMapping
+    public String addOne(@ModelAttribute Meeting meeting) {
+        meetingService.addOne(meeting);
+        return "redirect:/meetings";
     }
 
 }
