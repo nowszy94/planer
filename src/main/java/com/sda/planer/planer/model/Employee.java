@@ -33,4 +33,25 @@ public class Employee {
         String lowerCased = StringUtils.lowerCase(department.toString());
         return StringUtils.capitalize(lowerCased);
     }
+
+    public Employee(String firstName, String lastName, String phoneNumber, String email, List<Meeting> meetings, EmployeeEnum department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.meetings = meetings;
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", department=" + department +
+                '}';
+    }
 }

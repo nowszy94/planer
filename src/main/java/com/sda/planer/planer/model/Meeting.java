@@ -27,7 +27,7 @@ public class Meeting {
     @ManyToOne
     private Employee owner;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Employee> attendees;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -41,4 +41,12 @@ public class Meeting {
         return StringUtils.abbreviate(description, 20);
     }
 
+    public Meeting(String title, String description, Room room, Employee owner, List<Employee> attendees, LocalDate date) {
+        this.title = title;
+        this.description = description;
+        this.room = room;
+        this.owner = owner;
+        this.attendees = attendees;
+        this.date = date;
+    }
 }

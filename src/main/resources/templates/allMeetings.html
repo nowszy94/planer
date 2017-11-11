@@ -21,6 +21,25 @@
             padding: 40px 15px;
             text-align: center;
         }
+
+        .meeting {
+            height: 250px;
+            padding: 10px;
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-bottom: 30px
+        }
+
+        .meetings {
+            padding: 10px
+        }
+
+        .page-title {
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            font-size: 50px;
+        }
     </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -55,6 +74,10 @@
 
 <div class="container">
     <div class="row">
+        <h1 class="page-title">Meetings</h1>
+        <hr>
+    </div>
+    <div class="row">
         <div class="col-xs-2">
             <form action="/meetings" method="post" role="form">
                 <legend>New Meeting</legend>
@@ -88,15 +111,24 @@
             </form>
         </div>
         <div class="col-xs-10">
-            <div class="row" th:each="meeting : ${meetings}">
-                <div class="col-xs-4 meeting">
-                    <h6 th:text="${meeting.date}">21-11-2017</h6>
-                    <h1>
-                        <strong th:text="${meeting.title}">Proces Rekrutacyjny</strong>
-                        <span th:text="${meeting.attendeesCount}">(5)</span> - <span th:text="${meeting.room.name}">Winkiel</span>
-                    </h1>
-                    <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Szymon Nowak</h3>
-                    <p th:text="${meeting.shortenedDescription}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, iste...</p>
+            <div class="container">
+                <div class="row meetings">
+                    <div class="col-xs-4" th:each="meeting : ${meetings}">
+                        <div class="meeting">
+                            <h6 th:text="${meeting.date}">21-11-2017</h6>
+                            <h1>
+                                <strong th:text="${meeting.title}">Proces Rekrutacyjny</strong>
+                                <span th:text="${meeting.attendeesCount}">(5)</span> - <span
+                                    th:text="${meeting.room.name}">Winkiel</span>
+                            </h1>
+                            <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Szymon Nowak</h3>
+                            <p th:text="${meeting.shortenedDescription}">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing
+                                elit. Ducimus, iste...
+                            </p>
+                            <a href="#" th:href="'/meetings/' + ${meeting.id}" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,3 +144,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
