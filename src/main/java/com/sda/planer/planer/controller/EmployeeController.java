@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 @RequestMapping("/employees")
 public class EmployeeController {
 
@@ -39,4 +39,9 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
+    @GetMapping(path = "/{id}/remove")
+    public String removeEmployee(@PathVariable("id") long id) {
+        employeeService.removeEmployee(id);
+        return "redirect:/employees";
+    }
 }

@@ -28,4 +28,8 @@ public class EmployeeService {
     public Employee get(long id) {
         return employeeRepository.findOne(id);
     }
+
+    public void removeEmployee(long id) {
+        employeeRepository.delete(id);
+    }
 }
