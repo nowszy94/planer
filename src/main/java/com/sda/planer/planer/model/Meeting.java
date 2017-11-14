@@ -52,4 +52,16 @@ public class Meeting {
         this.attendees = attendees;
 //        this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", room=" + room +
+                ", owner=" + owner +
+                ", attendees=" + attendees +
+                '}';
+    }
 }

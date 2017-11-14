@@ -23,4 +23,13 @@ public class Room {
         this.name = name;
         this.capacity = capacity;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", capacity=" + capacity +
+                '}';
+    }
 }

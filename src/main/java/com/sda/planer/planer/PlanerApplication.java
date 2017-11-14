@@ -21,13 +21,4 @@ public class PlanerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PlanerApplication.class, args);
 	}
-
-	@Autowired
-	private EmployeeRepository employeeRepository;
-
-	@Autowired
-	private RoomRepository roomRepository;
-
-	@Autowired
-	private MeetingRepository meetingRepository;
 }
